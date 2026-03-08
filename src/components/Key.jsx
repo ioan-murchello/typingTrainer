@@ -16,7 +16,7 @@ const Key = memo(({ k, isActive, zoneColor }) => {
         style={{ 
           borderColor: zoneColor,
         }}
-        className={`relative h-11 w-11 flex items-center justify-center transition-all duration-150 uppercase font-mono font-medium text-[11px] border backdrop-blur-[1px] overflow-hidden [clip-path:polygon(15%_0%,_100%_0%,_100%_85%,_85%_100%,_0%_100%,_0%_15%)]`}
+        className={`relative h-9 w-9 flex items-center justify-center transition-all duration-150 uppercase font-mono font-medium text-[11px] border backdrop-blur-[1px] overflow-hidden [clip-path:polygon(15%_0%,_100%_0%,_100%_85%,_85%_100%,_0%_100%,_0%_15%)]`}
       >
         {isActive && (
           <div

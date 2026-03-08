@@ -8,9 +8,9 @@ export const useAudioManager = (isMuted) => {
   });
 
   useEffect(() => {
-    sounds.current.click = new Audio("/public/sounds/key_press.mp3");
-    sounds.current.zap = new Audio("/public/sounds/electro.mp3");
-    sounds.current.thinking = new Audio("/public/sounds/computer_thinking.mp3");
+    sounds.current.click = new Audio("/sounds/key_press.mp3");
+    sounds.current.zap = new Audio("/sounds/electro.mp3");
+    sounds.current.thinking = new Audio("/sounds/computer_thinking.mp3");
 
     sounds.current.click.volume = 0.6;
     sounds.current.zap.volume = 0.6;
