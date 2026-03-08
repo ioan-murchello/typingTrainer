@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* --- SCREEN IMPACT --- */
+@-webkit-keyframes screen-impact {
+  0% { box-shadow: 0 0 0px #fbbf24; border-color: #475569; }
+  50% { box-shadow: 0 0 20px #fbbf24; border-color: #fbbf24; }
+  100% { box-shadow: 0 0 5px rgba(251, 191, 36, 0.2); border-color: #475569; }
+}
+@keyframes screen-impact {
+  0% { box-shadow: 0 0 0px #fbbf24; border-color: #475569; }
+  50% { box-shadow: 0 0 20px #fbbf24; border-color: #fbbf24; }
+  100% { box-shadow: 0 0 5px rgba(251, 191, 36, 0.2); border-color: #475569; }
+}
+
+.impact-flash {
+  -webkit-animation: screen-impact 0.1s ease-out;
+  animation: screen-impact 0.1s ease-out;
+}
+
+/* --- SIGNAL TRAVEL --- */
+@-webkit-keyframes signal-travel {
+  0% { stroke-dashoffset: 200; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes signal-travel {
+  0% { stroke-dashoffset: 200; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.circuit-line {
+  fill: none;
+  stroke: rgba(251, 191, 36, 0.15);
+  stroke-width: 1.5;
+}
+
+.signal-pulse {
+  fill: none;
+  stroke: #fbbf24;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  -webkit-filter: drop-shadow(0 0 4px #fbbf24);
+  filter: drop-shadow(0 0 4px #fbbf24);
+  stroke-dasharray: 40, 160;
+  -webkit-animation: signal-travel 0.2s linear forwards;
+  animation: signal-travel 0.2s linear forwards;
+}
+
+/* --- LED BLINK --- */
+@-webkit-keyframes led-blink {
+  0%, 100% { opacity: 0.3; -webkit-filter: brightness(1); filter: brightness(1); }
+  50% { opacity: 1; -webkit-filter: brightness(1.5) blur(1px); filter: brightness(1.5) blur(1px); }
+}
+@keyframes led-blink {
+  0%, 100% { opacity: 0.3; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.5) blur(1px); }
+}
+
+.led-node {
+  -webkit-animation: led-blink var(--duration) infinite ease-in-out;
+  animation: led-blink var(--duration) infinite ease-in-out;
+}
+
+/* --- FLICKER --- */
+@-webkit-keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; -webkit-filter: brightness(1) blur(0px); filter: brightness(1) blur(0px); }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.3; -webkit-filter: brightness(0.5) blur(1px); filter: brightness(0.5) blur(1px); }
+}
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; filter: brightness(1) blur(0px); }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.3; filter: brightness(0.5) blur(1px); }
+}
+
+.animate-flicker {
+  -webkit-animation: flicker 2s infinite;
+  animation: flicker 2s infinite;
+}
+
+/* --- SPARK FLY --- */
+@-webkit-keyframes spark-fly {
+  0% { -webkit-transform: translate(0, 0) scale(1); transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { -webkit-transform: translate(var(--dx, 0), var(--dy, 0)) scale(0); transform: translate(var(--dx, 0), var(--dy, 0)) scale(0); opacity: 0; }
+}
+@keyframes spark-fly {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx, 0), var(--dy, 0)) scale(0); opacity: 0; }
+}
+
+.spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  -webkit-animation: spark-fly 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation: spark-fly 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.spark-orange {
+  background: #ffcc00;
+  box-shadow: 0 0 10px #ffaa00, 0 0 20px #ff4400;
+}
+
+.spark-red {
+  background-color: #ff4444;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+/* --- SMOKE PUFF --- */
+@-webkit-keyframes smoke-puff {
+  0% { -webkit-transform: translate(-50%, -50%) scale(0.2); transform: translate(-50%, -50%) scale(0.2); opacity: 0.8; -webkit-filter: blur(2px); filter: blur(2px); }
+  100% { -webkit-transform: translate(-50%, -80%) scale(3); transform: translate(-50%, -80%) scale(3); opacity: 0; -webkit-filter: blur(10px); filter: blur(10px); }
+}
+@keyframes smoke-puff {
+  0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.8; filter: blur(2px); }
+  100% { transform: translate(-50%, -80%) scale(3); opacity: 0; filter: blur(10px); }
+}
+
+.smoke-cloud {
+  position: absolute;
+  background: -webkit-radial-gradient(circle, rgba(150, 150, 150, 0.6) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(150, 150, 150, 0.6) 0%, transparent 70%);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  pointer-events: none;
+  -webkit-animation: smoke-puff 1.2s ease-out forwards;
+  animation: smoke-puff 1.2s ease-out forwards;
+}
+
+/* --- PROCESSOR DATA BLINK --- */
+@-webkit-keyframes data-blink {
+  0%, 100% { background-color: rgba(249, 115, 22, 0.1); box-shadow: none; }
+  50% { background-color: rgba(215, 234, 46, 0.8); box-shadow: 0 0 4px rgba(251, 146, 60, 0.6); }
+}
+@keyframes data-blink {
+  0%, 100% { background-color: rgba(249, 115, 22, 0.1); box-shadow: none; }
+  50% { background-color: rgba(215, 234, 46, 0.8); box-shadow: 0 0 4px rgba(251, 146, 60, 0.6); }
+}
+
+.animate-data-blink {
+  -webkit-animation: data-blink linear infinite;
+  animation: data-blink linear infinite;
+}
+
+/* --- SCAN LINE --- */
+@-webkit-keyframes scan {
+  0% { top: -10%; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { top: 110%; opacity: 0; }
+}
+@keyframes scan {
+  0% { top: -10%; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { top: 110%; opacity: 0; }
+}
+
+/* --- HOLOGRAPHIC PULSE --- */
+@-webkit-keyframes holographic-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+@keyframes holographic-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* --- DISPLAY SCAN --- */
+@-webkit-keyframes display-scan {
+  0% { -webkit-transform: translateX(-150%); transform: translateX(-150%); }
+  100% { -webkit-transform: translateX(500%); transform: translateX(500%); }
+}
+@keyframes display-scan {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(500%); }
+}
+
+.animate-display-scan {
+  -webkit-animation: display-scan 4s linear infinite;
+  animation: display-scan 4s linear infinite;
+}
+
+.highlighting {
+  box-shadow: inset 0 0 20px rgba(255, 165, 0, 0.4), 0 0 15px rgba(255, 140, 0, 0.2);
+  border-color: rgba(255, 165, 0, 0.6
