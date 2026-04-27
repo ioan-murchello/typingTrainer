@@ -9,9 +9,9 @@ import Header from "./Header";
 
 const TypingTrainer = memo(() => {
   return (
-    <div className="h-dvh  flex justify-center flex-col bg-[#0a0c10] text-slate-100 font-mono overflow-hidden">
-      <div className="flex-1 mx-auto max-w-7xl w-full relative p-8 bg-slate-900/80 backdrop-blur-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+    <div className="h-dvh flex items-center justify-center flex-col bg-[#151e36] backdrop-blur-sm text-slate-100 font-mono overflow-hidden">
         <BackgroundDecor />
+      <div className="flex-1 items-center justify-center mx-auto max-w-7xl w-full relative p-8 ">
 
         {/* Header Stats */}
         <Header />

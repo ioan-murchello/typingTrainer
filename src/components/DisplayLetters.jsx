@@ -12,7 +12,7 @@ const DisplayLetters = memo(() => {
               ${isAnimating ? "opacity-40 blur-[1px]" : "opacity-100"}`}
     >
       {targetStr.split("").map((char, i) => {
-        let colorClass = "text-slate-500";
+        let colorClass = "text-slate-2f00";
         let glowEffect = "";
 
         if (i < index) {

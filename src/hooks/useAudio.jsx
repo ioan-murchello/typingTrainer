@@ -82,7 +82,7 @@ export const useAudioManager = (isMuted) => {
 
           // If a 'thinking' sound is already playing, stop it first to avoid overlaps
           if (activeNodes.current[type]) {
-            try { activeNodes.current[type].stop(); } catch(e) {}
+            try { activeNodes.current[type].stop(); } catch(e) { console.error(e); }
           }
           activeNodes.current[type] = source;
         }
@@ -97,6 +97,7 @@ export const useAudioManager = (isMuted) => {
             activeNodes.current[type].stop();
           } catch (e) {
             // Node might have already stopped
+            console.error(e);
           }
           delete activeNodes.current[type];
         }
@@ -114,7 +115,9 @@ export const useAudioManager = (isMuted) => {
       Object.keys(activeNodes.current).forEach((type) => {
         try {
           activeNodes.current[type].stop();
-        } catch(e) {}
+        } catch(e) {
+          console.error(e);
+        }
         delete activeNodes.current[type];
       });
     }

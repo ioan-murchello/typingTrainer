@@ -1,7 +1,7 @@
 import React from "react"; 
 
 const BackgroundDecor = () => (
-  <svg className="fixed inset-0 w-full h-full opacity-[0.07] pointer-events-none -z-5">
+  <svg className="fixed inset-0 w-full h-full opacity-[0.06] pointer-events-none -z-5">
     <defs>
       <pattern
         id="circuit"
@@ -15,7 +15,7 @@ const BackgroundDecor = () => (
         <path
           d="M 0 100 L 50 100 L 70 120 L 150 120 L 170 100 L 250 100"
           fill="none"
-          stroke="#3b82f6"
+          stroke="#ffee02"
           strokeWidth="1.2"
         />
         
@@ -23,7 +23,7 @@ const BackgroundDecor = () => (
         <path
           d="M 125 0 L 125 50 L 105 70 L 105 180 L 125 200 L 125 250"
           fill="none"
-          stroke="#3b82f6"
+          stroke="#ffff01"
           strokeWidth="1.2"
         />
 
